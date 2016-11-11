@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE_URL: postgres://postgres:mysecretpasswod@postgres:5432
+    volumes:
+      - .:/app
+    command: ['bundle', 'exec', 'rails', 's', '-b', '0.0.0.0']
+    depends_on:
+      - postgresql
+
+  postgresql:
+    image: postgres:9.5.5
