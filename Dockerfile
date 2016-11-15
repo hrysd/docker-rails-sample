@@ -1,7 +1,7 @@
 FROM ruby:2.3.1-alpine
 
 RUN apk update && apk upgrade
-RUN apk add postgresql-dev build-base
+RUN apk add postgresql-dev build-base nodejs tzdata
 
 RUN mkdir /app
 
